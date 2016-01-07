@@ -11,13 +11,16 @@ require './models/guard'
 
 class LoveLetterGame
 
-  attr_accessor :players, :deck, :ended, :winner
+  attr_accessor :players, :deck, :winner
 
   def initialize *names
     self.players = names.map { |name| Player.new name }
     self.deck = Deck.new
-    self.ended = false
     deal_starting_cards
+  end
+
+  def ended?
+    deck.empty? || players.size == 1
   end
 
   def deal_starting_cards
@@ -26,16 +29,11 @@ class LoveLetterGame
   end
 
   def deal_card
-    if !deck.empty?
-      players.first.cards << deck.pop
-    else
-      self.ended = true
-      puts 'fin de juego'
-    end
+    players.first.cards << deck.pop
   end
 
   def play card
-    raise 'el juego termino' if ended
+    raise 'el juego termino' if ended?
     current_player.play card
     puts "player plays #{card}"
     players.rotate!

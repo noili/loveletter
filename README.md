@@ -3,9 +3,6 @@ loveletter
 
 ### TODO:
 
-1. Ended, should be a method?
+1. Cleanup play, too many lines, does more than one thing.
 
-2. Cleanup play, too many lines, does more than one thing
-
-3. Clean deal_card, does more than one thing
-
+2. test_current_player_plays does funny things.
