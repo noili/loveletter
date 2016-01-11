@@ -15,7 +15,7 @@ class ArrayTest < Minitest::Test
   end
 
   def test_first_player_has_two_cards
-    assert game.players.first.cards_in_hand == 2
+    assert game.players.first.cards.size == 2
   end
 
   def test_deal_cards_at_game_start

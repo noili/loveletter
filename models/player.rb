@@ -16,10 +16,6 @@ class Player
     self.cards = []
   end
 
-  def cards_in_hand
-    2
-  end
-
   def play card
     puts card.play
     cards.delete_at(cards.index(card) || cards.length)
