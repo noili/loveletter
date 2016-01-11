@@ -46,9 +46,8 @@ class LoveLetterGame
   end
 
   def win_by_high_card
-    self.winner = current_player
     players.each do |player|
-      if player.cards.last > winner.cards.last
+      if player.cards.last > current_player.cards.last
         self.winner = player
       end
     end
